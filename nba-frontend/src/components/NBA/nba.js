@@ -1,9 +1,10 @@
 import React from "react";
 import Search from "../Search/search";
+import "./nba.css"
 
 export default function NBA() {
   
-      return (<>
+      return (<div>
       <div className="appbar">
         <img className="logo"></img>
         <h1 className="titulo">NBA APP</h1>
@@ -14,5 +15,5 @@ export default function NBA() {
         <Search className="barra-botao"/>
         {/* <ResultSearch resultados={lista_detalhes}/> */}
       </div>
-    </>) 
+    </div>) 
   }

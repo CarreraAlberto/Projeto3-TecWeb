@@ -1,13 +1,15 @@
 import React from "react";
+import "./login.css";
+
 
 export default function Login() {
   return (
-    <div class="areaGeral">
-        <div class="form-area">
-            <div class="form-title">
+    <div className="areaGeral">
+        <div className="form-area">
+            <div className="form-title">
                 <h3>Login</h3>
             </div>
-            <div class="form-inputs">
+            <div className="form-inputs">
                 <label>
                     <input type="email" id="email" placeholder="Username"/>
                 </label>
