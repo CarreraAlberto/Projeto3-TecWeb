@@ -7,8 +7,8 @@ import NBA from './components/NBA/nba';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Search />
+      <header>
+        <NBA />
       </header>
     </div>
   );
