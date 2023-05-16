@@ -1,4 +1,5 @@
 # Projeto3-TecWeb
+# API: https://rapidapi.com/fluis.lacasse/api/basketapi1
 
 ## Funcionalidades
 1. Sign up e login [2]
