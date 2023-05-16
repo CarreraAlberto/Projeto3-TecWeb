@@ -1,7 +1,13 @@
 import React from "react";
-import "./search.css";
+// import "./search.css";
 
 export default function Search(props) {
+
+    function capitalize(str) {
+        return str.toLowerCase().split(' ').map(function(word) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join(' ');
+      }
 
     function handleKeyDown(event) {
         if (event.key === "Enter") {
