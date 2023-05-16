@@ -1,0 +1,55 @@
+.card{
+    width: 200px;
+    height: 250px;
+    perspective: 800px;
+    margin-left: 1%;
+}
+
+.card_inner{
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card:hover .card_inner{
+    transform: rotateY(180deg);
+}
+
+.card__body{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    color: #fff;
+}
+
+.card__body--front{
+    background-image: linear-gradient(
+        /* -20deg, #16d9e3 0%, #30c7ec 47%,#46aef7 100% */
+        -20deg, #ed174b 0%,#006cb7 100%
+    );
+}
+
+.card__body--back{
+    background-image: linear-gradient(
+        -20deg, #ed174b 0%,#006cb7 100%
+    );
+    transform: rotateY(180deg);
+}
+
+.img_time{
+    width: 60px;
+    height: 60px;
+    margin-left: 3%;
+    margin-right: 0.5%;
+    background-image: url('../Imagens/cortinas.png');
+    border: 5px solid #fff;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;  
+}
