@@ -42,12 +42,11 @@
 }
 
 .img_time{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin-left: 3%;
     margin-right: 0.5%;
-    /* background-image: url('../Imagens/cortinas.png'); */
-    border: 5px solid #fff;
+    /* border: 5px solid #fff; */
     border-radius: 50%;
     background-size: cover;
     background-repeat: no-repeat;

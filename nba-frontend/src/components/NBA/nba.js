@@ -34,9 +34,8 @@ export default function NBA() {
       </div>
 
       <div className="corpo">
-        {/* <Search getFilmes={getFilmes} className="BarraEbotao"/> */}
         <Search className="barra-botao" getTime={getTime}/>
-        <ResultSearch resultados={time} score={score}/>
+        {time != null && <ResultSearch resultados={time} score={score}/>}
       </div>
     </div>) 
   }
