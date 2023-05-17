@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <header>
         <NBA />
-        <Card />
       </header>
     </div>
   );

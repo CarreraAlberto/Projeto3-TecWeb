@@ -2,26 +2,25 @@ import React from "react";
 import "./search.css";
 
 export default function Search(props) {
-
     function capitalize(str) {
         return str.toLowerCase().split(' ').map(function(word) {
           return word.charAt(0).toUpperCase() + word.slice(1);
         }).join(' ');
       }
 
-    function handleKeyDown(event) {
+    function chamaGetTime(event) {
         if (event.key === "Enter") {
           event.preventDefault(); // previne o comportamento padrão do formulário
-          console.log(capitalize(document.getElementsByName("time")[0].value)); 
+          props.getTime(capitalize(document.getElementsByName("time")[0].value));
         }
         event.preventDefault(); // previne o comportamento padrão do formulário
-        console.log(capitalize(document.getElementsByName("time")[0].value)); 
+        props.getTime(capitalize(document.getElementsByName("time")[0].value));
       }
 
     return (
         <form className="barra-botao">
             <input type="text" name="time" placeholder="What team are you looking for?" className="barra-pesquisa"/>
-            <button type="submit" onClick={handleKeyDown} className="botao">Search</button>
+            <button type="submit" onClick={chamaGetTime} className="botao">Search</button>
         </form>
     );
 }

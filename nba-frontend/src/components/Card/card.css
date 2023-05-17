@@ -46,7 +46,7 @@
     height: 60px;
     margin-left: 3%;
     margin-right: 0.5%;
-    background-image: url('../Imagens/cortinas.png');
+    /* background-image: url('../Imagens/cortinas.png'); */
     border: 5px solid #fff;
     border-radius: 50%;
     background-size: cover;
