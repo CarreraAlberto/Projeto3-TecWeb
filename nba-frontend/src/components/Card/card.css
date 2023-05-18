@@ -2,7 +2,11 @@
     width: 200px;
     height: 250px;
     perspective: 800px;
-    margin-left: 1%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 
 .card_inner{
