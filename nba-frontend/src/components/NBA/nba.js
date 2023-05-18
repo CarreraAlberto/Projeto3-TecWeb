@@ -28,12 +28,8 @@ export default function NBA() {
     }
   
     return (<div>
-      <div className="appbar">
-        <img className="logo"></img>
-        <h1 className="titulo">NBA APP</h1>
-      </div>
-
       <div className="corpo">
+        <button className="botao-favoritos">Favoritos</button>
         <Search className="barra-botao" getTime={getTime}/>
         {Object.keys(time).length !== 0 && <ResultSearch resultados={time} score={score} />}
       </div>

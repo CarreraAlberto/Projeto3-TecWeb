@@ -14,6 +14,11 @@ function App() {
 
   return (
     <div className="App">
+      <div className="appbar">
+        <img className="logo"></img>
+        <h1 className="titulo">NBA APP</h1>
+      </div>
+      
       <header>
         {telaAtual === "login" ? (
           <Login onChangeTela={handleChangeTela} />
