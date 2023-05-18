@@ -11,7 +11,7 @@ export default function ResultSearch(props) {
       method: 'GET',
       url: caminho,
       headers: {
-        'X-RapidAPI-Key': 'bf4f0312ccmsh2f2b045a972b41bp13f83ejsn1a2f2198ac11',
+        'X-RapidAPI-Key': '6418c84e97msh9495c17f8ebaec6p1d0ccajsn2efc5b143de7',
         'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
       },
       responseType: 'blob'

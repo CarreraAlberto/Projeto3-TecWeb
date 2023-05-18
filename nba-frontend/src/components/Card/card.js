@@ -11,6 +11,7 @@ export default function Card(props) {
             <h2>{props.title}</h2>
           </div>
           <div className="card__body card__body--back">
+            <h2>{props.nickname}</h2>
             <h2>Score: {props.score}</h2>
             <h2>Country: {props.pais}</h2>
           </div>
