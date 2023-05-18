@@ -8,6 +8,7 @@ import "./nba.css"
 export default function NBA() {
     const [time, setTime] = useState({});
     const [score, setScore] = useState(0);
+
     async function getTime(team) {
       let caminho = 'https://basketapi1.p.rapidapi.com/api/basketball/search/' + team;
       const options = {
@@ -23,7 +24,6 @@ export default function NBA() {
       .then((res) => {
         setTime(res.data.results[0].entity)
         setScore(res.data.results[0].score)
-        // console.log(res.data.results[0].entity, "1");
       });
     }
   
@@ -35,7 +35,7 @@ export default function NBA() {
 
       <div className="corpo">
         <Search className="barra-botao" getTime={getTime}/>
-        {time != null && <ResultSearch resultados={time} score={score}/>}
+        {Object.keys(time).length !== 0 && <ResultSearch resultados={time} score={score} />}
       </div>
     </div>) 
   }

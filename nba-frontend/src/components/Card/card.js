@@ -1,27 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
+import "./card.css";
+
 
 export default function Card(props) {
-  useEffect(() => {
-    props.getLogoTime();
-  }, [props.getLogoTime]);
-
-  return (
+    return (
     <div className="card">
-      <div className="card-header">
-        <h2>{props.title}</h2>
-        <p>{props.score}</p>
-      </div>
-      <div className="card-body">
-        <img src={props.imagem} alt="Logo do time" />
-        <div className="card-body-content">
-          <p>
-            <strong>País:</strong> {props.pais}
-          </p>
-          <p>
-            <strong>Apelido:</strong> {props.nickname}
-          </p>
+        <div className="card_inner">
+          <div className="card__body card__body--front">
+            <img className="img_time" src={props.imagem}/>
+            <h2>{props.title}</h2>
+          </div>
+          <div className="card__body card__body--back">
+            <h2>Score: {props.score}</h2>
+            <h2>Country: {props.pais}</h2>
+          </div>
         </div>
-      </div>
     </div>
-  );
+    );
 }
