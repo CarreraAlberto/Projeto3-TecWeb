@@ -3,7 +3,9 @@ import Search from "../Search/search";
 import ResultSearch from "../ResultSearch/result";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import "./nba.css"
+
 
 export default function NBA() {
     const [time, setTime] = useState({});
@@ -15,7 +17,7 @@ export default function NBA() {
         method: 'GET',
         url: caminho,
         headers: {
-          'X-RapidAPI-Key': 'ea19798a6bmsh5403d2b8bb7e1bap1ea186jsn2e3e30f397ab',
+          'X-RapidAPI-Key': '7a65528b38msh5250b2f57bf92adp1c19e7jsnda56c1b7eef3',
           'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
         }
       };
@@ -29,7 +31,9 @@ export default function NBA() {
   
     return (<div>
       <div className="corpo">
-        <button className="botao-favoritos">Favoritos</button>
+        <Link to="/favoritos">
+          <img className="icon"></img>
+        </Link>
         <Search className="barra-botao" getTime={getTime}/>
         {Object.keys(time).length !== 0 && <ResultSearch resultados={time} score={score} />}
       </div>

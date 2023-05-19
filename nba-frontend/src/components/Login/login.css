@@ -1,58 +1,105 @@
-.areaGeral{
-	width: 100%;
-	height: 100%;
+/* ed174b , 006cb7*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047
 }
 
-.form-area,
-.center-system{
-	width: 50%;
-	position: relative;
-	left: 50%;
-	margin-top: 10%;
-	transform: translateX(-50%);
-	background-color: #f8f8f8;
-	-webkit-box-shadow: 0px 0px 1px 1px rgba(240,232,240,1);
-	-moz-box-shadow: 0px 0px 1px 1px rgba(240,232,240,1);
-	box-shadow: 0px 0px 1px 1px rgba(240,232,240,1);
-}
-
-.form-area > .form-title{
-	width: 96%;
-	float: left;
-	position: relative;
-	background-color: #ed174b;
-	padding: 2%;
-}
-.form-area > .form-title h3{
-	font-weight: bolder;
-	text-transform: uppercase;
-	font-size: 14px;
-	color: #fff;
-}
-
-
-.form-area > .form-inputs{
-	width: 100%;
-	float: left;
-	position: relative;
-	padding: 3% 0;
+.page {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
     background-color: #006cb7;
 }
-.form-area > .form-inputs label input[type=email],
-.form-area > .form-inputs label input[type=password]{
-	width: 90%;
-	padding: 2%;
-	margin: 2% 2%;
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px;
+    width: 300px; /* Ajuste a largura conforme necessário */
+    margin: 0 auto; /* Para centralizar o elemento horizontalmente */
+  }
+
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+    text-align: center;
 }
 
-.form-area > .form-inputs button{
-	width: 30%;
-	padding: 2%;
-	margin: 2% 4%;
-	background-color: #ffffff;
-	border:none;
-	text-align: center;
-	color: #000000;
-	font-weight: bolder;
-    
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.formLogin input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+
+.formLogin input:focus {
+    border: 1px solid #f72585;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+    text-align: center;
+}
+
+.formLogin a:hover {
+    color: #f72585;
+}
+
+.btn {
+    background-color: #f72585;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+    padding: 15px;
+    border-radius: 100px;
+    width: 100%;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #ff0676;
+
 }
