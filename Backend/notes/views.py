@@ -11,16 +11,17 @@ from django.contrib.auth.models import User
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-def api_note(request, note_id):
+def api_note(request, note_id_time):
     try:
-        note = Note.objects.get(id=note_id)
+        note = Note.objects.get(id_time=note_id_time)
     except Note.DoesNotExist:
         raise Http404()
     
     if request.method == 'POST':
         new_note_data = request.data
-        note.title = new_note_data['title']
-        note.content = new_note_data['content']
+        # note.title = new_note_data['title']
+        # note.content = new_note_data['content']
+        note.id_time = new_note_data['id_time']
         note.save()
     elif request.method == 'DELETE':
         note.delete()
@@ -35,9 +36,11 @@ def api_notes(request):
 
     if request.method == "POST":
         new_note_data = request.data
-        title = new_note_data['title']
-        content = new_note_data['content']
-        note = Note(title=title, content=content)
+        # title = new_note_data['title']
+        # content = new_note_data['content']
+        # note = Note(title=title, content=content)
+        id_time = new_note_data['id_time']
+        note = Note(id_time=id_time)
         note.save()
 
     notes = Note.objects.filter(user=request.user)
@@ -64,15 +67,20 @@ def api_get_token(request):
 @api_view(['POST'])
 def api_user(request):
     if request.method == 'POST':
-        username = request.data['username']
+        # username = request.data['username']
         email = request.data['email']
         password = request.data['password']
 
-        user = User.objects.create_user(username, email, password)
+        user = User.objects.create_user(email, password)
         user.save()
         return Response(status=204)
 
 # {
 # "username": "pedrao",
 # "password": "cornomanso"
+# }
+
+# {
+# "username": "albertinho",
+# "password": "1234567"
 # }
