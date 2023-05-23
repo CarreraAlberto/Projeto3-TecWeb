@@ -77,3 +77,25 @@
     cursor: pointer;
     background-color: transparent;
 }
+
+.botao-delete {
+    width: 30px;
+    height: 30px;
+    margin-left: 80%;
+    background-image: url('../Imagens/delete.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+.botao-delete:active {
+  background-image: url('../Imagens/delete2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
