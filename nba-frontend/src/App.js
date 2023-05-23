@@ -1,17 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import Login from './components/Login/login';
 import NBA from './components/NBA/nba';
-import Card from './components/Card/card';
+import Favoritos from './components/Favoritos/favoritos';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header>
-        <NBA />
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="appbar">
+          <img className="logo"></img>
+          <h1 className="titulo">NBA APP</h1>
+        </div>
+      </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/nba" element={<NBA />} />
+        <Route path="/favoritos" element={<Favoritos />} />
+      </Routes>
+    </Router>
   );
 }
-export default App;
+

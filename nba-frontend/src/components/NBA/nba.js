@@ -3,7 +3,9 @@ import Search from "../Search/search";
 import ResultSearch from "../ResultSearch/result";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import "./nba.css"
+
 
 export default function NBA() {
     const [time, setTime] = useState({});
@@ -28,12 +30,10 @@ export default function NBA() {
     }
   
     return (<div>
-      <div className="appbar">
-        <img className="logo"></img>
-        <h1 className="titulo">NBA APP</h1>
-      </div>
-
       <div className="corpo">
+        <Link to="/favoritos">
+          <img className="icon"></img>
+        </Link>
         <Search className="barra-botao" getTime={getTime}/>
         {Object.keys(time).length !== 0 && <ResultSearch resultados={time} score={score} />}
       </div>
