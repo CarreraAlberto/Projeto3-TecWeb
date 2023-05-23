@@ -14,15 +14,27 @@ export default function Login(props) {
     const options = {
       method: 'POST',
       url: 'http://127.0.0.1:8000/api/token/',
-      body: {
+      data: {
         'username': email,
         'password': password
       }
     }
     await axios.request(options)
     .then((res) => {
-      console.log(res.data);
+      const options_token = {
+        method: 'GET',
+        url: 'http://127.0.0.1:8000/api/notes/',
+        headers: {
+          Authorization: 'Token ' + res.data.token
+        }
+      
+      };
+      axios.request(options_token).then((res) => {
+        console.log(res.data[0]);
+      }
+      )
     })
+  
   }
 
   return (
