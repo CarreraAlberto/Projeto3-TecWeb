@@ -12,13 +12,13 @@
 ### Sprint 1 (16/5) [F3]
 - [x] Criar página de busca de time e apresenta na pagina.
 - [x] Estilizar página de busca de time.
-- [ ] Criar banco de dados capaz de armazenar varios usuários.
+- [X] Criar banco de dados capaz de armazenar varios usuários.
 - [ ] Criar página de login.
-- [ ] Estilizar página de login.
+- [X] Estilizar página de login.
 
 ### Sprint 2 (18/5) [F5 + F2]
-- [ ] Criar página de resultado.
-- [ ] Estilizar página de resultado.
+- [X] Criar página de resultado.
+- [X] Estilizar página de resultado.
 - [ ] Criar CRUD do time favorito.
 
 ### Sprint 3 (18/5) [F4]
