@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
 import Login from './components/Login/login';
 import NBA from './components/NBA/nba';
 import Favoritos from './components/Favoritos/favoritos';

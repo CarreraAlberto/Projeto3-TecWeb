@@ -1,13 +1,28 @@
 import React from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-export default function Login() {
-  
+export default function Login(props) {
   function handleKeyDown(event) {
     event.preventDefault(); // previne o comportamento padrão do formulário
-    props.getUser((document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
+    getUser((document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
 
+  }
+
+  async function getUser(email, password) {
+    const options = {
+      method: 'POST',
+      url: 'http://127.0.0.1:8000/api/token/',
+      body: {
+        'username': email,
+        'password': password
+      }
+    }
+    await axios.request(options)
+    .then((res) => {
+      console.log(res.data);
+    })
   }
 
   return (
@@ -20,9 +35,9 @@ export default function Login() {
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" placeholder="Enter your password" name="password"/>
         <a href="#">Sign Up</a>
-        <Link to="/nba">
-          <button className="btn" type="button">Sign In</button>
-        </Link>
+        {/* <Link to="/nba"> */}
+          <button className="btn" type="submit" onClick={handleKeyDown}>Sign In</button>
+        {/* </Link> */}
       </div>
     </div>
   );
