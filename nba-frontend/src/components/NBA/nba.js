@@ -11,6 +11,10 @@ export default function NBA() {
     const [time, setTime] = useState({});
     const [score, setScore] = useState(0);
 
+    async function getUser(email, password) {
+      
+    }
+
     async function getTime(team) {
       let caminho = 'https://basketapi1.p.rapidapi.com/api/basketball/search/' + team;
       const options = {
