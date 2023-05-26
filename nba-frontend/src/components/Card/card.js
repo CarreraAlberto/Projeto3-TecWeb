@@ -5,9 +5,9 @@ import "./card.css";
 export default function Card(props) {
   let botao = null;
 
-  if (window.location.pathname === "/favoritos") {
+  if (window.location.pathname === "/nba") {
     botao = <button className="botao-salvar" onClick={() => console.log("clik")}></button>;
-  } else if (window.location.pathname === "/nba") {
+  } else if (window.location.pathname === "/favoritos") {
     botao = <button className="botao-delete" onClick={() => console.log("clik")}></button>;
   }
 
