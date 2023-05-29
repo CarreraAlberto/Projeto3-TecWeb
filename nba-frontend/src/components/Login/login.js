@@ -31,6 +31,7 @@ export default function Login(props) {
       };
       axios.request(options_token).then((res) => {
         console.log(res.data[0]);
+        window.location.replace("/nba");
       }
       )
     })
@@ -48,7 +49,7 @@ export default function Login(props) {
         <input type="password" id="password" placeholder="Enter your password" name="password"/>
         <a href="#">Sign Up</a>
         {/* <Link to="/nba"> */}
-          <button className="btn" type="submit" onClick={handleKeyDown}>Sign In</button>
+        <button className="btn" type="submit" onClick={handleKeyDown}>Sign In</button>
         {/* </Link> */}
       </div>
     </div>
