@@ -10,6 +10,12 @@ export default function Login(props) {
 
   }
 
+  function criaUser(event) {
+    event.preventDefault(); // previne o comportamento padrão do formulário
+    criaUsuario((document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
+
+  }
+
   async function getUser(email, password) {
     const options = {
       method: 'POST',
@@ -38,6 +44,45 @@ export default function Login(props) {
   
   }
 
+  async function criaUsuario(email, password) {
+    const options_create = {
+      method: 'POST',
+      url: 'http://127.0.0.1:8000/api/token/',
+      data: {
+        'username': email,
+        'password': password
+      }
+    }
+    await axios.request(options_create) 
+    .then((res) => {
+      const options = {
+        method: 'POST',
+        url: 'http://127.0.0.1:8000/api/token/',
+        data: {
+          'username': email,
+          'password': password
+        }
+      }
+      axios.request(options)
+      .then((res) => {
+        const options_token = {
+          method: 'GET',
+          url: 'http://127.0.0.1:8000/api/notes/',
+          headers: {
+            Authorization: 'Token ' + res.data.token
+          }
+        
+        };
+        axios.request(options_token).then((res) => {
+          console.log(res.data[0]);
+          window.location.replace("/nba");
+        }
+        )
+      })
+    
+    });
+  }
+
   return (
     <div className="page">
       <div className="formLogin">
@@ -47,10 +92,8 @@ export default function Login(props) {
         <input type="text" id="username" placeholder="Enter your e-mail" name="email"/>
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" placeholder="Enter your password" name="password"/>
-        <a href="#">Sign Up</a>
-        {/* <Link to="/nba"> */}
+        <a type="submit" onClick={criaUser}>Sign Up</a>
         <button className="btn" type="submit" onClick={handleKeyDown}>Sign In</button>
-        {/* </Link> */}
       </div>
     </div>
   );
