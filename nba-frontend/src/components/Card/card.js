@@ -7,12 +7,11 @@ export default function Card(props) {
   let botao = null;
 
   async function salvaFavorito() {
-    console.log(props.id_time);
     const options = {
       method: 'POST',
       url: 'http://127.0.0.1:8000/api/notes/',
       data: {
-        'id_time': props.id_time,
+        'time': props.title,
       },
       headers: {
         Authorization: 'Token ' + JSON.parse(localStorage.getItem('token')).token

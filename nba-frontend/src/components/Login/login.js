@@ -93,7 +93,6 @@ export default function Login(props) {
       <div className="formLogin">
         <h1>Login</h1>
         <p>Please enter your credentials.</p>
-
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" placeholder="Enter your username" name="username"/>
         <label htmlFor="email">E-mail:</label>

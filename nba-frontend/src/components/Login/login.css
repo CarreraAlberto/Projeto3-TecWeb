@@ -17,7 +17,7 @@ body {
     align-content: center;
     justify-content: center;
     width: 100%;
-    height: 90vh;
+    height: 100%;
     background-color: #006cb7;
 }
 
@@ -31,6 +31,8 @@ body {
     gap: 5px;
     width: 300px; /* Ajuste a largura conforme necessário */
     margin: 0 auto; /* Para centralizar o elemento horizontalmente */
+    margin-top: 1%; /* Para centralizar o elemento verticalmente */
+    margin-bottom: 1%; /* Para centralizar o elemento verticalmente */
   }
 
 

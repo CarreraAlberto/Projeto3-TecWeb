@@ -41,7 +41,7 @@ def api_notes(request):
         # content = new_note_data['content']
         # note = Note(title=title, content=content)
         print(new_note_data)
-        id_time = new_note_data['id_time']
+        id_time = new_note_data['time']
         note = Note(id_time=id_time, user=user)
         note.save()
         
