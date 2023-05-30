@@ -15,12 +15,13 @@ export default function Login(props) {
 
   }
 
-  async function getUser(email, password) {
+  async function getUser(username, email, password) {
     const options = {
       method: 'POST',
       url: 'http://127.0.0.1:8000/api/token/',
       data: {
-        'username': email,
+        'username': username,
+        'email': email,
         'password': password
       }
     }
