@@ -6,13 +6,12 @@ import axios from 'axios';
 export default function Login(props) {
   function handleKeyDown(event) {
     event.preventDefault(); // previne o comportamento padrão do formulário
-    getUser((document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
-
+    getUser((document.getElementsByName("username")[0].value),(document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
   }
 
   function criaUser(event) {
     event.preventDefault(); // previne o comportamento padrão do formulário
-    criaUsuario((document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
+    criaUsuario((document.getElementsByName("username")[0].value),(document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
 
   }
 
@@ -44,23 +43,24 @@ export default function Login(props) {
   
   }
 
-  async function criaUsuario(email, password) {
+  async function criaUsuario(username, email, password) {
     const options_create = {
       method: 'POST',
       url: 'http://127.0.0.1:8000/api/users/',
       data: {
-        'username': email,
+        'username': username,
+        'email': email,
         'password': password
       }
     }
-    console.log("create");
     await axios.request(options_create) 
     .then((res) => {
       const options = {
         method: 'POST',
         url: 'http://127.0.0.1:8000/api/token/',
         data: {
-          'username': email,
+          'username': username,
+          'email': email,
           'password': password
         }
       }
@@ -89,8 +89,11 @@ export default function Login(props) {
       <div className="formLogin">
         <h1>Login</h1>
         <p>Please enter your credentials.</p>
-        <label htmlFor="username">E-mail:</label>
-        <input type="text" id="username" placeholder="Enter your e-mail" name="email"/>
+
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username" name="username"/>
+        <label htmlFor="email">E-mail:</label>
+        <input type="email" id="email" placeholder="Enter your email" name="email"/>
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" placeholder="Enter your password" name="password"/>
         <a type="submit" onClick={criaUser}>Sign Up</a>
