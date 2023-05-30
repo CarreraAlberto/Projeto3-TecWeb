@@ -44,7 +44,7 @@ def api_notes(request):
         id_time = new_note_data['id_time']
         note = Note(id_time=id_time, user=user)
         note.save()
-
+        
     notes = Note.objects.filter(user=request.user)
 
     serialized_note = NoteSerializer(notes, many=True)

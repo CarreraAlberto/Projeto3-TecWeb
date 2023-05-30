@@ -30,6 +30,7 @@ export default function NBA() {
         setScore(res.data.results[0].score)
       });
     }
+
   
     return (<div>
       <div className="corpo">
