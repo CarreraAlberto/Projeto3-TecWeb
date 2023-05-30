@@ -47,12 +47,13 @@ export default function Login(props) {
   async function criaUsuario(email, password) {
     const options_create = {
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/token/',
+      url: 'http://127.0.0.1:8000/api/users/',
       data: {
         'username': email,
         'password': password
       }
     }
+    console.log("create");
     await axios.request(options_create) 
     .then((res) => {
       const options = {

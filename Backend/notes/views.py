@@ -53,8 +53,9 @@ def api_get_token(request):
     try:
         if request.method == 'POST':
             username = request.data['username']
+            email = request.data['email']
             password = request.data['password']
-            user = authenticate(username=username, password=password)
+            user = authenticate(username=username, email=email, password=password)
 
             if user is not None:
                 token, created = Token.objects.get_or_create(user=user)
@@ -67,12 +68,12 @@ def api_get_token(request):
 @api_view(['POST'])
 def api_user(request):
     if request.method == 'POST':
-        # username = request.data['username']
+        username = request.data['username']
         email = request.data['email']
         password = request.data['password']
-
-        user = User.objects.create_user(email, password)
+        user = User.objects.create_user(username, email, password)
         user.save()
+        print("user created")
         return Response(status=204)
 
 # {
