@@ -1,14 +1,34 @@
 import React from "react";
 import "./card.css";
+import axios from "axios";
 
 
 export default function Card(props) {
   let botao = null;
 
+  async function salvaFavorito() {
+    console.log(props.id_time);
+    const options = {
+      method: 'POST',
+      url: 'http://127.0.0.1:8000/api/notes/',
+      data: {
+        'id_time': props.id_time,
+      },
+      headers: {
+        Authorization: 'Token ' + JSON.parse(localStorage.getItem('token')).token
+      }
+    }
+    console.log(JSON.parse(localStorage.getItem('token')).token);
+    await axios.request(options)
+    .then((res) => {
+      console.log(res.data);
+    })
+  }
+
   if (window.location.pathname === "/nba") {
-    botao = <button className="botao-salvar" onClick={() => console.log("clik")}></button>;
+    botao = <button className="botao-salvar" onClick={salvaFavorito}></button>;
   } else if (window.location.pathname === "/favoritos") {
-    botao = <button className="botao-delete" onClick={() => console.log("clik")}></button>;
+    botao = <button className="botao-delete" onClick={console.log("click")}></button>;
   }
 
   return (

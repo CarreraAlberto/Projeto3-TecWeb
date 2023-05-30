@@ -32,7 +32,7 @@ export default function ResultSearch(props) {
 
   return (
     <div className="resultado_filmes">
-      <Card key={props.resultados.id} title={props.resultados.name} score={props.score} imagem={imageUrl} pais={props.resultados.country.name} nickname={props.resultados.shortName} />
+      <Card key={props.resultados.id} title={props.resultados.name} score={props.score} imagem={imageUrl} pais={props.resultados.country.name} nickname={props.resultados.shortName} id_time={props.resultados.id} />
     </div>
   );
 }

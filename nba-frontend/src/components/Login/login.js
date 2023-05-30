@@ -25,8 +25,11 @@ export default function Login(props) {
         'password': password
       }
     }
-    await axios.request(options)
+    axios.request(options)
     .then((res) => {
+      console.log(res.data.token);
+      localStorage.setItem('token', JSON.stringify(res.data));
+
       const options_token = {
         method: 'GET',
         url: 'http://127.0.0.1:8000/api/notes/',
@@ -36,7 +39,7 @@ export default function Login(props) {
       
       };
       axios.request(options_token).then((res) => {
-        console.log(res.data[0]);
+        console.log(res);
         window.location.replace("/nba");
       }
       )

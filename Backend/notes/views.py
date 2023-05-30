@@ -36,11 +36,13 @@ def api_notes(request):
 
     if request.method == "POST":
         new_note_data = request.data
+        user = request.user
         # title = new_note_data['title']
         # content = new_note_data['content']
         # note = Note(title=title, content=content)
+        print(new_note_data)
         id_time = new_note_data['id_time']
-        note = Note(id_time=id_time)
+        note = Note(id_time=id_time, user=user)
         note.save()
 
     notes = Note.objects.filter(user=request.user)

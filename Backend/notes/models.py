@@ -6,3 +6,4 @@ class Note(models.Model):
     # content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_time = models.CharField(max_length=200)
+
