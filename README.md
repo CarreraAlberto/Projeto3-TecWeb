@@ -24,3 +24,7 @@
 ### Sprint 3 (18/5) [F4]
 - [x] Cria time favorito em cada usuario no Banco de dados.
 - [X] Criar botao para salvar time favorito.
+
+## Como rodar
+1. Ativar o environment e rodar o backend
+2. Rodar o frontend 
