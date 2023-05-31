@@ -2,8 +2,12 @@ import React from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Cadastrado from '../UsuarioCadastrado/cadastrado';
 
 export default function Login(props) {
+  
+  const [cadastrado, setCadastrado] = React.useState(false);
+
   function handleKeyDown(event) {
     event.preventDefault(); // previne o comportamento padrão do formulário
     getUser((document.getElementsByName("username")[0].value),(document.getElementsByName("email")[0].value), (document.getElementsByName("password")[0].value)); 
@@ -80,7 +84,10 @@ export default function Login(props) {
         };
         axios.request(options_token).then((res) => {
           console.log(res.data[0]);
-          window.location.replace("/nba");
+          // window.location.replace("/nba");
+          // criar novo componente e chamar o componente aqui
+          setCadastrado(true);
+          
         }
         )
       })
@@ -102,6 +109,7 @@ export default function Login(props) {
         <a type="submit" onClick={criaUser}>Sign Up</a>
         <button className="btn" type="submit" onClick={handleKeyDown}>Sign In</button>
       </div>
+      {cadastrado && <Cadastrado />}
     </div>
   );
 };
