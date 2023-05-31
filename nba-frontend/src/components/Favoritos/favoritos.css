@@ -22,3 +22,12 @@
     right: 0;
     margin: 10px;
 }
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+

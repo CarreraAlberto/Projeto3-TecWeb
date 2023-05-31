@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import "./favoritos.css";
 import axios from "axios";
 import Card from "../Card/card";
+import ResultSearch from "../ResultSearch/result";
 
 
 export default function Favoritos(){
     const [favoritos, setFavoritos] = useState([]);
     const [imageUrl, setImageUrl] = useState("");
-    const [time, setTime] = useState({});
-    const [score, setScore] = useState(0);
   
     async function pegaFavoritos() {
         const options = {
@@ -54,14 +53,12 @@ export default function Favoritos(){
       await axios.request(options)
       .then((res) => {
         console.log(res.data.results[0].entity)
-        // setTime(res.data.results[0].entity)
-        // setScore(res.data.results[0].score)
         favoritos.push({resultados: res.data.results[0].entity, score: res.data.results[0].score});
       });
     }
     
     if(favoritos.length ==! 0){
-      console.log(favoritos);
+      console.log(favoritos, 1);
     }
 
 
@@ -71,17 +68,11 @@ export default function Favoritos(){
         <Link to="/nba">
             <button className="btn_volta">home</button>
         </Link>
+        <div>
         {favoritos.map((time) => (
-          <Card
-            key={time.resultados.id}
-            title={time.resultados.name}
-            score={time.score}
-            // imagem={imageUrl}
-            pais={time.resultados.country.name}
-            nickname={time.resultados.shortName}
-            id_time={time.resultados.id}
-          />
+          <ResultSearch resultados={time.resultados} score={time.score} className="container"/>
         ))}
+        </div>
     </div>
     );
 }
