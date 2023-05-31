@@ -19,7 +19,7 @@ export default function NBA() {
         method: 'GET',
         url: caminho,
         headers: {
-          'X-RapidAPI-Key': '7a65528b38msh5250b2f57bf92adp1c19e7jsnda56c1b7eef3',
+          'X-RapidAPI-Key': '6418c84e97msh9495c17f8ebaec6p1d0ccajsn2efc5b143de7',
           'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
         }
       };
