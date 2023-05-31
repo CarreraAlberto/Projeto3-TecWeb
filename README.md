@@ -19,8 +19,8 @@
 ### Sprint 2 (18/5) [F5 + F2]
 - [X] Criar página de resultado.
 - [X] Estilizar página de resultado.
-- [ ] Criar CRUD do time favorito.
+- [x] Criar CRUD do time favorito.
 
 ### Sprint 3 (18/5) [F4]
-- [ ] Cria time favorito em cada usuario no Banco de dados.
+- [x] Cria time favorito em cada usuario no Banco de dados.
 - [X] Criar botao para salvar time favorito.
