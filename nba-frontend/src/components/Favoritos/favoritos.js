@@ -35,6 +35,7 @@ export default function Favoritos(){
         let lista_times = [];
         Promise.all(lista.map(async (time) => {
           await getTime(time.id_time);
+          console.log("doug");
           lista_times.push({resultados: time, score: score});
         }))
         setFavoritos(lista_times);
@@ -56,6 +57,7 @@ export default function Favoritos(){
       
       await axios.request(options)
       .then((res) => {
+        console.log(res.data.results[0])
         setTime(res.data.results[0].entity)
         setScore(res.data.results[0].score)
       });
