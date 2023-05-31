@@ -35,11 +35,7 @@ export default function Favoritos(){
         let lista_times = [];
         Promise.all(lista.map(async (time) => {
           await getTime(time.id_time);
-          console.log("doug");
-          lista_times.push({resultados: time, score: score});
-        }))
-        setFavoritos(lista_times);
-        // console.log(lista_times);
+        }));
       }
       
     
@@ -50,16 +46,17 @@ export default function Favoritos(){
         method: 'GET',
         url: caminho,
         headers: {
-          'X-RapidAPI-Key': '6418c84e97msh9495c17f8ebaec6p1d0ccajsn2efc5b143de7 ',
+          'X-RapidAPI-Key': '7f2799f3a8mshf4df2249c60510ap17e9abjsnd79d436711d0',
           'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
         }
       };
       
       await axios.request(options)
       .then((res) => {
-        console.log(res.data.results[0])
-        setTime(res.data.results[0].entity)
-        setScore(res.data.results[0].score)
+        console.log(res.data.results[0].entity)
+        // setTime(res.data.results[0].entity)
+        // setScore(res.data.results[0].score)
+        favoritos.push({resultados: res.data.results[0].entity, score: res.data.results[0].score});
       });
     }
     
@@ -74,7 +71,7 @@ export default function Favoritos(){
         <Link to="/nba">
             <button className="btn_volta">home</button>
         </Link>
-        {/* {favoritos.map((time) => (
+        {favoritos.map((time) => (
           <Card
             key={time.resultados.id}
             title={time.resultados.name}
@@ -84,8 +81,7 @@ export default function Favoritos(){
             nickname={time.resultados.shortName}
             id_time={time.resultados.id}
           />
-          
-        ))} */}
+        ))}
     </div>
     );
 }
