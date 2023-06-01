@@ -30,13 +30,15 @@ export default function Favoritos(){
         }, []);
 
     async function getListaTimes(lista) {
-        const lista_times = [];
-        Promise.all(lista.map(async (time) => {
-          await getTime(time.id_time);
+      const lista_times = [];
+      Promise.all(lista.map(async (time) => {
+        await getTime(time.id_time);
+        if (times && times.resultados && times.resultados.id) {
           lista_times.push(times);
-        }));
-        setFavoritos(lista_times);
-      }
+        }
+      }));
+      setFavoritos(lista_times);
+    }
     
 
     async function getTime(team) {
@@ -45,7 +47,7 @@ export default function Favoritos(){
         method: 'GET',
         url: caminho,
         headers: {
-          'X-RapidAPI-Key': '6418c84e97msh9495c17f8ebaec6p1d0ccajsn2efc5b143de7',
+          'X-RapidAPI-Key': '0706172402msh3ded9bf3861ad1ep11c49fjsne36cc8fcd7be',
           'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
         }
       };
