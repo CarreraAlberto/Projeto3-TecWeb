@@ -1,0 +1,9 @@
+.cards{
+    /* deixa os cards no meio da tela um ao lado do outro */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

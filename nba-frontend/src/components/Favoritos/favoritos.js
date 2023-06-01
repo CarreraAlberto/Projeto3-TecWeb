@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import "./favoritos.css";
 import axios from "axios";
-import Card from "../Card/card";
 import ResultSearch from "../ResultSearch/result";
 
 
 export default function Favoritos(){
     const [favoritos, setFavoritos] = useState([]);
-    const [imageUrl, setImageUrl] = useState("");
-  
+    const [times, setTimes] = useState({});
+
     async function pegaFavoritos() {
         const options = {
           method: 'GET',
@@ -22,21 +21,22 @@ export default function Favoritos(){
         console.log(JSON.parse(localStorage.getItem('token')).token);
         await axios.request(options)
         .then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           getListaTimes(res.data);
         })
       }
     useEffect(() => {
         pegaFavoritos();
         }, []);
-    
+
     async function getListaTimes(lista) {
-        let lista_times = [];
+        const lista_times = [];
         Promise.all(lista.map(async (time) => {
           await getTime(time.id_time);
+          lista_times.push(times);
         }));
+        setFavoritos(lista_times);
       }
-      
     
 
     async function getTime(team) {
@@ -45,20 +45,21 @@ export default function Favoritos(){
         method: 'GET',
         url: caminho,
         headers: {
-          'X-RapidAPI-Key': '0706172402msh3ded9bf3861ad1ep11c49fjsne36cc8fcd7be',
+          'X-RapidAPI-Key': '6418c84e97msh9495c17f8ebaec6p1d0ccajsn2efc5b143de7',
           'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
         }
       };
-      
-      await axios.request(options)
+
+      await axios.request(options)        
       .then((res) => {
         console.log(res.data.results[0].entity)
-        favoritos.push({resultados: res.data.results[0].entity, score: res.data.results[0].score});
+        setTimes({resultados: res.data.results[0].entity, score: res.data.results[0].score})
       });
-    }
+    }  
+    
     
     if(favoritos.length ==! 0){
-      console.log(favoritos, 1);
+      console.log(favoritos.length, 1);
     }
 
 
@@ -70,9 +71,10 @@ export default function Favoritos(){
         </Link>
         <div>
         {favoritos.map((time) => (
-          <ResultSearch resultados={time.resultados} score={time.score} className="container"/>
+          Object.keys(favoritos).length !== 0 && <ResultSearch resultados={time.resultados} score={time.score} />
         ))}
         </div>
     </div>
     );
+    
 }
