@@ -1,12 +1,18 @@
+.cards{
+    /* deixa os cards no meio da tela um ao lado do outro */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .card{
     width: 300px;
     height: 350px;
     perspective: 800px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+    margin: 10px; /* Add some margin between the cards */
 }
 
 .card_inner{
@@ -89,13 +95,13 @@
     cursor: pointer;
     background-color: #fff;
     border-radius: 50%;
-  }
+}
 
 .botao-delete:active {
-  background-image: url('../Imagens/delete2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
+    background-image: url('../Imagens/delete2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
 }

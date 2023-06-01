@@ -28,3 +28,6 @@
 ## Como rodar
 1. Ativar o environment e rodar o backend
 2. Rodar o frontend 
+
+## Video
+### https://youtu.be/cGtlbC_6NSU
